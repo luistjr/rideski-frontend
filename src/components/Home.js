@@ -6,7 +6,10 @@ function Home() {
   return (
     <div>
       <p>Home</p>
-      <CreateItinerary />
+
+      {/* if user clicks create itinerary button, then create redirects to createitinerary */}
+
+      {/* <CreateItinerary /> */}
     </div>
 
   );

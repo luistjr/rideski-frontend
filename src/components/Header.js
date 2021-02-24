@@ -1,4 +1,5 @@
 import React from 'react';
+import { Switch, Route, Link } from "react-router-dom";
 import Navbar from './Navbar';
 import Login from './Login';
 import Signup from './Signup';
@@ -9,10 +10,26 @@ function Header() {
     <div>
       <p>Header</p>
       <Navbar />
-      <Login />
-      <Signup />
-    </div>
+      <br />
+      <nav className="register-nav">
+        <Link className="button" to="/login">
+          Login
+        </Link>
+        <Link className="button" to="/signup">
+          Signup
+        </Link>
+      </nav>
 
+      <Switch>
+        <Route exact path="/login">
+          <Login />
+        </Route>
+        <Route exact path="/signup">
+          <Signup />
+        </Route>
+      </Switch>
+
+    </div>
   );
 }
 
