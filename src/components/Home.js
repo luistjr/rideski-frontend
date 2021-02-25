@@ -1,15 +1,18 @@
-import React from 'react';
 import CreateItinerary from './CreateItinerary';
 
-function Home() {
-  
+function Home( {user} ) {
+
+  const { id, first_name, last_name, img } = user 
+
+  console.log({user})
+
   return (
     <div>
-      <p>Home</p>
+      <p>Welcome Home {first_name}!</p>
 
-      {/* if user clicks create itinerary button, then create redirects to createitinerary */}
+      <img src='http://[::1]:3001/images/castle_animation.gif' alt="Disney Castle Animation" className="anim-home"/>
+      <CreateItinerary />
 
-      {/* <CreateItinerary /> */}
     </div>
 
   );

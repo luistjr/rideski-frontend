@@ -1,10 +1,17 @@
-import React from 'react';
 import { Switch, Route, Link } from "react-router-dom";
 import Navbar from './Navbar';
 import Login from './Login';
 import Signup from './Signup';
 
-function Header() {
+function Header({ user, setUser }) {
+
+  function newUser() {
+    if (user === null) {
+      return <div> 
+        <Link className="new-button" to="/login">Login</Link>
+        <Link className="new-button" to="/signup">Signup</Link></div>
+    }
+  }
 
   return (
     <div>
@@ -12,20 +19,15 @@ function Header() {
       <Navbar />
       <br />
       <nav className="register-nav">
-        <Link className="button" to="/login">
-          Login
-        </Link>
-        <Link className="button" to="/signup">
-          Signup
-        </Link>
+        {newUser()}
       </nav>
 
       <Switch>
         <Route exact path="/login">
-          <Login />
+          <Login user={user} />
         </Route>
         <Route exact path="/signup">
-          <Signup />
+          <Signup user={user} setUser={setUser} />
         </Route>
       </Switch>
 

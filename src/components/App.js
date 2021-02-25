@@ -1,4 +1,4 @@
-// import React, { useState } from 'react';
+import React, { useState } from 'react';
 import '../App.css';
 import Header from './Header';
 import Home from './Home'
@@ -6,12 +6,16 @@ import Home from './Home'
 
 function App() {
 
-  // const [currentUser, setCurrentUser] = useState(null);
+  const [user, setUser] = useState(null);
+
+  console.log(user);
+
+
 
   return (
     <div>
-      <Header />
-      <Home />
+      <Header user={user} setUser={setUser} />
+      { user ? <Home user={user}/> : <h1>Please login or signup</h1> }
     </div>
 
   );

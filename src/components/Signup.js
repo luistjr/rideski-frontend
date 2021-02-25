@@ -1,12 +1,15 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
-function Signup() {
+function Signup( {user, setUser} ) {
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  let history = useHistory();
 
   const newUser = {
     first_name: firstName,
@@ -28,11 +31,11 @@ function Signup() {
       body: JSON.stringify(newUser),
     })
       .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
+      .then(data => { 
+        setUser(data)
+        history.push("/")
       })
   };
-
 
   return (
     <div>
