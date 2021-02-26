@@ -6,7 +6,7 @@ import ItineraryContainer from './ItineraryContainer';
 import Profile from './Profile';
 import RideContainer from './RideContainer';
 
-function Navbar() {
+function Navbar({ user, setUser }) {
 
   return (
     <div>
@@ -36,7 +36,7 @@ function Navbar() {
           <RideContainer />
         </Route>
         <Route exact path="/profile">
-          <Profile />
+          <Profile user={user} setUser={setUser}/>
         </Route>
       </Switch>
 

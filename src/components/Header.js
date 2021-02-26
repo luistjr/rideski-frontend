@@ -16,7 +16,7 @@ function Header({ user, setUser }) {
   return (
     <div>
       <p>Header</p>
-      <Navbar />
+      {user ? <Navbar user={user} setUser={setUser}/> : null }
       <br />
       <nav className="register-nav">
         {newUser()}

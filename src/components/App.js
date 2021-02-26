@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../App.css';
 import Header from './Header';
-import Home from './Home'
+// import Home from './Home'
 
 
 function App() {
@@ -10,12 +10,10 @@ function App() {
 
   console.log(user);
 
-
-
   return (
     <div>
       <Header user={user} setUser={setUser} />
-      { user ? <Home user={user}/> : <h1>Please login or signup</h1> }
+      {/* { user ? <Home user={user}/> : <h1>Please login or signup</h1> } */}
     </div>
 
   );

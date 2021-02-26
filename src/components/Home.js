@@ -2,13 +2,13 @@ import CreateItinerary from './CreateItinerary';
 
 function Home( {user} ) {
 
-  const { id, first_name, last_name, img } = user 
+  const { firstName, img } = user 
 
   console.log({user})
 
   return (
     <div>
-      <p>Welcome Home {first_name}!</p>
+      <p>Welcome Home {firstName}!</p>
 
       <img src='http://[::1]:3001/images/castle_animation.gif' alt="Disney Castle Animation" className="anim-home"/>
       <CreateItinerary />
