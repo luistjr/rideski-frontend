@@ -2,11 +2,11 @@ import React from 'react';
 
 function ItineraryItem({itinerary}) {
 
-  
+  const { date } = itinerary;
   
   return (
     <div>
-      <p>Itinerary Item</p>
+      <p>{date}</p>
     </div>
 
   );

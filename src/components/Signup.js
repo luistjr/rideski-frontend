@@ -52,8 +52,8 @@ function Signup( {user, setUser} ) {
         <input type="text" name="firstname" placeholder="First Name" value={firstName} onChange={e => setFirstName(e.target.value)} />
         <input type="text" name="lastname" placeholder="Last Name" value={lastName} onChange={e => setLastName(e.target.value)} />
         <input type="text" name="email" placeholder="Email Address" value={email} onChange={e => setEmail(e.target.value)} />
-        <input type="text" name="username" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} />
-        <input type="password" name="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
+        <input type="text" name="username" autoComplete="username" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} />
+        <input type="password" name="password" autoComplete="current-password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
         <button type="submit">Submit</button>
       </form>
     </div>
