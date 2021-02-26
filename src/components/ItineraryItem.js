@@ -1,6 +1,8 @@
 import React from 'react';
 
-function ItineraryItem() {
+function ItineraryItem({itinerary}) {
+
+  
   
   return (
     <div>

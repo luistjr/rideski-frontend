@@ -1,10 +1,16 @@
 import React from 'react';
+import '../RideItem.css';
 
-function RideItem() {
+function RideItem( {ride} ) {
+
+  const { name, img, land, description } = ride
   
   return (
     <div>
-      <p>Ride Item</p>
+      <h1 className="ride-name">{name}</h1>
+      <img src={img} alt={name} className="ride-img" />
+      <p>{land}</p>
+      <p>{description}</p>
     </div>
 
   );
