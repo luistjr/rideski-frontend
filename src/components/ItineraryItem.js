@@ -14,12 +14,9 @@ function ItineraryItem({ itinerary, user }) {
 
   function selectedItem(){
     if (currentItinerary != ""){
-      setCurrentItinerary = "";
-      return <SelectedItinerary />
+      return <SelectedItinerary currentItinerary={currentItinerary} setCurrentItinerary={setCurrentItinerary} />
     } 
   }
-
-  console.log(currentItinerary)
 
   return (
     <div>
