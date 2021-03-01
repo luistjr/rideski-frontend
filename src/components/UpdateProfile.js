@@ -50,7 +50,8 @@ function UpdateProfile({ user, setUser }) {
 
   return (
     <div>
-      <p>Update Form</p>
+      <br />
+      <p>Update Your Account Details</p>
 
       <form onSubmit={handleUpdateClick}>
         <input type="text" name="firstname" placeholder="First Name" value={updateFirstName} onChange={e => setUpdateFirstName(e.target.value)} />

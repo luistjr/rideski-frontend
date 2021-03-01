@@ -24,7 +24,7 @@ function Header({ user, setUser }) {
 
       <Switch>
         <Route exact path="/login">
-          <Login user={user} />
+          <Login user={user} setUser={setUser} />
         </Route>
         <Route exact path="/signup">
           <Signup user={user} setUser={setUser} />

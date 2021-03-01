@@ -1,15 +1,17 @@
 import React from 'react';
 import ItineraryItem from './ItineraryItem';
 
-function ItineraryList( {itineraries} ) {
+function ItineraryList({ itineraries, user }) {
 
-  const itineraryItem = itineraries.map(itinerary => {
-    <ItineraryItem itinerary={itinerary} />
+
+
+  const itineraryItem = itineraries.map((itinerary) => {
+    return <ItineraryItem itinerary={itinerary} key={itinerary.id} user={user} />
   })
   
   return (
     <div>
-      <p>Itinerary List</p>
+      <br />
       {itineraryItem}
     </div>
 

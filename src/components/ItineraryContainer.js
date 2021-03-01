@@ -1,18 +1,19 @@
 import { useState, useEffect } from 'react';
 import ItineraryList from './ItineraryList';
 
-function ItineraryContainer() {
+function ItineraryContainer( {user} ) {
 
   const [ itineraries, setItineraries ] = useState([]);
 
-  useEffect(() => {fetch('http://[::1]:3001/itineraries')
+
+  useEffect(() => {fetch(`http://[::1]:3001/users/${user.id}`)
     .then(r => r.json())
-    .then(data => setItineraries(data))
+    .then(data => setItineraries(data.itineraries))
   }, []);
   
   return (
     <div>
-      <ItineraryList itineraries={itineraries} />
+      <ItineraryList itineraries={itineraries} user={user} />
     </div>
   );
 }

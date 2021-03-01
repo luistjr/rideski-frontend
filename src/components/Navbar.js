@@ -30,7 +30,7 @@ function Navbar({ user, setUser }) {
           <CreateItinerary />
         </Route>
         <Route exact path="/trips">
-          <ItineraryContainer />
+          <ItineraryContainer user={user} setUser={setUser} />
         </Route>
         <Route exact path="/rides">
           <RideContainer />
