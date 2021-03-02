@@ -15,7 +15,7 @@ function Header({ user, setUser }) {
 
   return (
     <div>
-      <p>Header</p>
+      <h1>Header</h1>
       {user ? <Navbar user={user} setUser={setUser}/> : null }
       <br />
       <nav className="register-nav">
@@ -30,7 +30,6 @@ function Header({ user, setUser }) {
           <Signup user={user} setUser={setUser} />
         </Route>
       </Switch>
-
     </div>
   );
 }

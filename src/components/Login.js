@@ -44,8 +44,8 @@ function Login({ user, setUser }) {
     <div>
       <br />
       <form onSubmit={handleLoginClick}>
-        <input type="text" name="username" placeholder="Username" value={formData.username} onChange={handleChange}/>
-        <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange}/>
+        <input type="text" name="username" placeholder="Username" value={formData.username} onChange={handleChange} autoComplete="off" />
+        <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} autoComplete="off"/>
         <button type="submit">Submit</button>
       </form>
     </div>

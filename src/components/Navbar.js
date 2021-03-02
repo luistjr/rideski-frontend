@@ -39,9 +39,7 @@ function Navbar({ user, setUser }) {
           <Profile user={user} setUser={setUser}/>
         </Route>
       </Switch>
-
     </div>
-
   );
 }
 
