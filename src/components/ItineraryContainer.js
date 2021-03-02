@@ -16,7 +16,7 @@ function ItineraryContainer( {user} ) {
   
   return (
     <div>
-      <ItineraryList itineraries={itineraries} user={user} />
+      <ItineraryList itineraries={itineraries} user={user} setItineraries={setItineraries} />
     </div>
   );
 }

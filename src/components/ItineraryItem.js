@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import SelectedItinerary from './SelectedItinerary';
 
-function ItineraryItem({ itinerary, user }) {
+function ItineraryItem({ itinerary, itineraries, setItineraries, user }) {
 
   const { firstName } = user;
   const { id, date } = itinerary;
 
   const [currentItinerary, setCurrentItinerary] = useState("");
 
-  // pass setCurrentItinerary 
+console.log("It Item", itineraries)
 
   function handleDateClick(e) {
     fetch(`http://[::1]:3001/itineraries/${e.target.id}`)
@@ -18,7 +18,7 @@ function ItineraryItem({ itinerary, user }) {
 
   function selectedItem(){
     if (currentItinerary !== ""){
-      return <SelectedItinerary currentItinerary={currentItinerary} setCurrentItinerary={setCurrentItinerary} />
+      return <SelectedItinerary currentItinerary={currentItinerary} setCurrentItinerary={setCurrentItinerary} itineraries={itineraries} setItineraries={setItineraries} user={user}/>
     } 
   }
 
