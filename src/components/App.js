@@ -8,9 +8,7 @@ function App() {
 
   const [user, setUser] = useState(null);
   const [showHome, setShowHome] = useState(true);
-
-  console.log(user);
-
+  
   return (
     <div>
       <Header user={user} setUser={setUser} showHome={showHome} setShowHome={setShowHome} />

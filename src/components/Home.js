@@ -6,8 +6,6 @@ function Home({ user, showHome, setShowHome }) {
 
   const { firstName, img } = user
 
-  console.log("show home", {showHome})
-
   let history = useHistory();
 
   function handleCreateClick() {
@@ -23,8 +21,6 @@ function Home({ user, showHome, setShowHome }) {
         <br />
         <button onClick={handleCreateClick}>Create Itinerary</button>
       </div>
-    } else {
-      return console.log('nope')
     }
   }
 
