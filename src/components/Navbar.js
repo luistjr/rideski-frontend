@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import "../Navbar.css"
 import { Switch, Route, Link } from "react-router-dom";
 import CreateItinerary from './CreateItinerary';
@@ -6,7 +6,9 @@ import ItineraryContainer from './ItineraryContainer';
 import Profile from './Profile';
 import RideContainer from './RideContainer';
 
-function Navbar({ user, setUser }) {
+function Navbar({ user, setUser, setShowHome }) {
+
+  // console.log("nav", {showHome})
 
   return (
     <div>
@@ -27,16 +29,16 @@ function Navbar({ user, setUser }) {
 
       <Switch>
         <Route exact path="/trips/create">
-          <CreateItinerary />
+          <CreateItinerary user={user} setShowHome={setShowHome} />
         </Route>
         <Route exact path="/trips">
-          <ItineraryContainer user={user} setUser={setUser} />
+          <ItineraryContainer user={user} setUser={setUser} setShowHome={setShowHome} />
         </Route>
         <Route exact path="/rides">
-          <RideContainer />
+          <RideContainer setShowHome={setShowHome}/>
         </Route>
         <Route exact path="/profile">
-          <Profile user={user} setUser={setUser}/>
+          <Profile user={user} setUser={setUser} setShowHome={setShowHome}/>
         </Route>
       </Switch>
     </div>

@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import Login from './Login';
 import Signup from './Signup';
 
-function Header({ user, setUser }) {
+function Header({ user, setUser, showHome, setShowHome }) {
 
   function newUser() {
     if (user === null) {
@@ -16,7 +16,7 @@ function Header({ user, setUser }) {
   return (
     <div>
       <h1>Header</h1>
-      {user ? <Navbar user={user} setUser={setUser}/> : null }
+      {user ? <Navbar user={user} setUser={setUser} setShowHome={setShowHome} /> : null }
       <br />
       <nav className="register-nav">
         {newUser()}

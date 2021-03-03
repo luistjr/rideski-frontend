@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import '../App.css';
 import Header from './Header';
-// import Home from './Home'
+import Home from './Home';
 
 
 function App() {
 
   const [user, setUser] = useState(null);
+  const [showHome, setShowHome] = useState(true);
 
   console.log(user);
 
   return (
     <div>
-      <Header user={user} setUser={setUser} />
-      {/* { user ? <Home user={user}/> : <h1>Please login or signup</h1> } */}
+      <Header user={user} setUser={setUser} showHome={showHome} setShowHome={setShowHome} />
+      { user ? <Home user={user} showHome={showHome} setShowHome={setShowHome}/> : <h1>Please login or signup</h1> }
     </div>
 
   );

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import '../RideItem.css';
 
 function SelectedRideItem({ currentItinerary, setCurrentItinerary, ride, itineraries, setItineraries, user }) {
