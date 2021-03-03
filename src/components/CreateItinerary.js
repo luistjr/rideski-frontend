@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
+import AddRide from './AddRide';
 
 function CreateItinerary({ user, setShowHome }) {
 
   const toggleHome = setShowHome(false)
   const [date, setDate] = useState(new Date());
   const [showCalendar, setShowCalendar] = useState(false);
-  const [rI, setRI] = useState(null);
+  const [addRides, setAddRides] = useState(false);
 
   const month = date.getUTCMonth() + 1;
   const day = date.getUTCDate();
@@ -57,13 +58,19 @@ function handleDateClick() {
   setShowCalendar(true)
 }
 
+function handleAddRides() {
+  setAddRides(true);
+}
+
 return (
   <div>
     {toggleHome}
     <br />
-    <button onClick={handleDateClick}>Select Date</button>
+    <br />
+    <button onClick={handleAddRides}>Add Rides to Existing Itinerary</button>
     <br />
     <br />
+    {addRides ? <AddRide user={user}/> : <button onClick={handleDateClick}>Create New Itinerary </button>}
     {showCalendar ? <form onSubmit={handleSubmit}>
       <Calendar onChange={setDate} value={date} />
       <br />

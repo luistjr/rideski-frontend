@@ -8,9 +8,8 @@ function ItineraryItem({ itinerary, itineraries, setItineraries, user }) {
 
   const [currentItinerary, setCurrentItinerary] = useState("");
 
-console.log("It Item", itineraries)
-
   function handleDateClick(e) {
+
     fetch(`http://[::1]:3001/itineraries/${e.target.id}`)
       .then(r => r.json())
       .then(itineraryInfo => setCurrentItinerary(itineraryInfo));
