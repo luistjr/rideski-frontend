@@ -6,9 +6,7 @@ import ItineraryContainer from './ItineraryContainer';
 import Profile from './Profile';
 import RideContainer from './RideContainer';
 
-function Navbar({ user, setUser, setShowHome }) {
-
-  // console.log("nav", {showHome})
+function Navbar({ user, setUser, setShowHome, currentItinerary, setCurrentItinerary }) {
 
   return (
     <div>
@@ -32,7 +30,7 @@ function Navbar({ user, setUser, setShowHome }) {
           <CreateItinerary user={user} setShowHome={setShowHome} />
         </Route>
         <Route exact path="/trips">
-          <ItineraryContainer user={user} setUser={setUser} setShowHome={setShowHome} />
+          <ItineraryContainer user={user} setUser={setUser} setShowHome={setShowHome} currentItinerary={currentItinerary} setCurrentItinerary={setCurrentItinerary}/>
         </Route>
         <Route exact path="/rides">
           <RideContainer setShowHome={setShowHome}/>

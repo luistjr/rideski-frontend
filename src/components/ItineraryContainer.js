@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import ItineraryList from './ItineraryList';
 
-function ItineraryContainer( {user, setShowHome} ) {
+function ItineraryContainer( { currentItinerary, setCurrentItinerary, user, setShowHome} ) {
 
   const toggleHome = setShowHome(false)
   const [ itineraries, setItineraries ] = useState([]);
   const { id } = user;
+
+  console.log("IC", id)
 
 
   useEffect(() => {
@@ -18,7 +20,7 @@ function ItineraryContainer( {user, setShowHome} ) {
   return (
     <div>
       {toggleHome}
-      <ItineraryList itineraries={itineraries} user={user} setItineraries={setItineraries} />
+      <ItineraryList itineraries={itineraries} user={user} setItineraries={setItineraries} currentItinerary={currentItinerary} setCurrentItinerary={setCurrentItinerary}/>
     </div>
   );
 }

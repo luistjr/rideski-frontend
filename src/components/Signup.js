@@ -31,19 +31,12 @@ function Signup( {user, setUser} ) {
       body: JSON.stringify(newUser),
     })
       .then(response => response.json())
-      .then((data) => { 
-        setUser({
-          id: data.id,
-          firstName: data.first_name,
-          lastName: data.last_name,
-          email: data.email,
-          img: "https://i.ebayimg.com/images/g/vV4AAOSwRLZT2aca/s-l1600.jpg",
-          username: username,
-          password: password
-        });
+      .then((data) => {setUser(data);
         history.push("/");
       })
   };
+
+  console.log('sign up user', {user})
 
   return (
     <div>

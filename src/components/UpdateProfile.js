@@ -3,12 +3,14 @@ import { useState } from 'react';
 
 function UpdateProfile({ user, setUser }) {
 
-  const { id, firstName, lastName, email, username, password, img } = user
+  const { id, first_name, last_name, email, username, password, img } = user
+
+  console.log("update profiile", id);
 
   // let history = useHistory();
 
-  const [updateFirstName, setUpdateFirstName] = useState(firstName);
-  const [updateLastName, setUpdateLastName] = useState(lastName);
+  const [updateFirstName, setUpdateFirstName] = useState(first_name);
+  const [updateLastName, setUpdateLastName] = useState(last_name);
   const [updateEmail, setUpdateEmail] = useState(email);
   // const [updateImg, setUpdateImg] = useState(img);
   const [updateUsername, setUpdateUsername] = useState(username);
@@ -35,15 +37,7 @@ function UpdateProfile({ user, setUser }) {
     })
       .then(response => response.json())
       .then((data) => {
-        setUser({
-          id: data.id,
-          firstName: data.first_name,
-          lastName: data.last_name,
-          email: data.email,
-          img: "https://i.ebayimg.com/images/g/vV4AAOSwRLZT2aca/s-l1600.jpg",
-          username: username,
-          password: password
-        });
+        setUser(data);
         // history.push("/");
       })
   }

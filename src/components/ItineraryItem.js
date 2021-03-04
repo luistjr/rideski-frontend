@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import SelectedItinerary from './SelectedItinerary';
 
-function ItineraryItem({ itinerary, itineraries, setItineraries, user }) {
+function ItineraryItem({ currentItinerary, setCurrentItinerary, itinerary, itineraries, setItineraries, user }) {
 
-  const { firstName } = user;
+  const { first_name } = user;
   const { id, date } = itinerary;
-
-  const [currentItinerary, setCurrentItinerary] = useState("");
 
   function handleDateClick(e) {
 
@@ -14,6 +12,8 @@ function ItineraryItem({ itinerary, itineraries, setItineraries, user }) {
       .then(r => r.json())
       .then(itineraryInfo => setCurrentItinerary(itineraryInfo));
   }
+
+  console.log('IT', currentItinerary);
 
   function selectedItem(){
     if (currentItinerary !== ""){
@@ -23,7 +23,7 @@ function ItineraryItem({ itinerary, itineraries, setItineraries, user }) {
 
   return (
     <div>
-      <p>{firstName}'s Trips</p>
+      <p>{first_name}'s Trips</p>
       <p onClick={handleDateClick} id={id}>{date}</p> 
       {selectedItem()}
     </div>
