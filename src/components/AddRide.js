@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
+import TimePicker from 'react-time-picker';
 
 function AddRide( { user, currentItinerary, setCurrentItinerary } ) {
 
     const [rideList, setRideList] = useState([]);
     const [userItineraries, setUserItineraries] = useState([]);
 
-    const [time, setTime] = useState("1 PM");
+    const [time, setTime] = useState('09:00');
     const [selectedRide, setSelectedRide] = useState(1);
     const [selectedItinerary, setSelectedItinerary] = useState(1);
 
@@ -37,9 +38,7 @@ function AddRide( { user, currentItinerary, setCurrentItinerary } ) {
         return <option key={itinerary.id} value={itinerary.id}>{itinerary.date}</option>
     })
 
-    function handleTimeChange(e) {
-        setTime(e.target.value)
-    }
+    console.log('time', time)
 
     function handleRideChange(e) {
         setSelectedRide(e.target.value)
@@ -63,16 +62,16 @@ function AddRide( { user, currentItinerary, setCurrentItinerary } ) {
             .then(() => setCurrentItinerary(""));
     }
 
+    console.log(' addride', currentItinerary)
+
     return (
         <div>
+
+            <TimePicker onChange={setTime} value={time}/>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="time">Choose a time:</label>
                 <select value={selectedItinerary} onChange={handleItineraryChange}>
                 {userItineraryList}
-                </select>
-                <select value={time} onChange={handleTimeChange}>
-                    <option value="1 PM">1 PM</option>
-                    <option value="2 PM">2 PM</option>
                 </select>
                 <select value={selectedRide} onChange={handleRideChange}>
                     {rideNames}

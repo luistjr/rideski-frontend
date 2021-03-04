@@ -4,12 +4,18 @@ import '../RideItem.css';
 function SelectedRideItem({ currentItinerary, setCurrentItinerary, ride, itineraries, setItineraries, user }) {
     const { id, name, img, land, description, ride_itineraries } = ride;
 
+    const options = {
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true
+      };
+
     const rideTime = ride_itineraries.map((rI) => rI.time)
 
     const rideItineraryId = ride_itineraries.map((rI) => rI.id)
 
     // console.log("set ride item itinerary", itineraries);
-    console.log(" selected ride item - current itinerary", currentItinerary);
+    console.log("selected ride item - current itinerary", currentItinerary);
 
     // function updateItineraries(id) {
     //     fetch(`http://[::1]:3001/users/${id}`)
@@ -79,11 +85,19 @@ function SelectedRideItem({ currentItinerary, setCurrentItinerary, ride, itinera
             .then((data) => deleteItineraries(data.id))
     }
 
+    const checkFunction = function convertTime(){
+        if (parseInt(rideTime[0]) <= 12){
+            return parseInt(rideTime[0]) + " AM"
+        } else {
+            return (parseInt(rideTime[0]) - 12) + " PM"
+        }
+    }
+
     // how to get the state updated
 
     return (
         <div>
-            <h3>{rideTime}</h3>
+            <h3>{checkFunction()}</h3>
             <h1 className="ride-name">{name}</h1>
             <img src={img} alt={name} className="ride-img" />
             <h4>{land}</h4>
