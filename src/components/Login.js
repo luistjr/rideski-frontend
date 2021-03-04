@@ -28,14 +28,7 @@ function Login({ user, setUser }) {
     })
       .then(response => response.json())
       .then(data => {
-        setUser({
-          id: data.id,
-          firstName: data.first_name,
-          lastName: data.last_name,
-          email: data.email,
-          img: data.img,
-          username: data.username
-        });
+        setUser(data);
         history.push("/");
       })
   }

@@ -8,8 +8,8 @@ function SelectedRideItem({ currentItinerary, setCurrentItinerary, ride, itinera
 
     const rideItineraryId = ride_itineraries.map((rI) => rI.id)
 
-    console.log("set ride item itinerary", itineraries);
-    console.log("current itinerary", currentItinerary);
+    // console.log("set ride item itinerary", itineraries);
+    console.log(" selected ride item - current itinerary", currentItinerary);
 
     // function updateItineraries(id) {
     //     fetch(`http://[::1]:3001/users/${id}`)
@@ -57,20 +57,16 @@ function SelectedRideItem({ currentItinerary, setCurrentItinerary, ride, itinera
     // }
 
     function deleteItineraries(dataId) {
-        console.log('CURRENT', currentItinerary);
+        // console.log('CURRENT', currentItinerary);
 
-        let matchItineraryRides = currentItinerary.rides.filter(ride => ride.id !== id)
-        console.log('DELETED RIDE', matchItineraryRides);
+        // let matchItineraryRides = currentItinerary.rides.filter(ride => ride.id !== id)
+        // console.log('DELETED RIDE', matchItineraryRides);
 
-        currentItinerary.rides = matchItineraryRides
-        console.log('NEW CURRENT', currentItinerary);
+        // currentItinerary.rides = matchItineraryRides
+        // console.log('NEW CURRENT', currentItinerary);
         
-        setCurrentItinerary(currentItinerary)
+        // setCurrentItinerary(currentItinerary)
     }
-
-    console.log("after current itinerary", currentItinerary)
-
-    // compononent did not rerender ^
 
     function handleDeleteEvent(e) {
 

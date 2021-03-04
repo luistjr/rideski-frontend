@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 
-function AddRide( {user} ) {
+function AddRide( { user, currentItinerary, setCurrentItinerary } ) {
 
     const [rideList, setRideList] = useState([]);
     const [userItineraries, setUserItineraries] = useState([]);
 
-    const [time, setTime] = useState(1);
+    const [time, setTime] = useState("1 PM");
     const [selectedRide, setSelectedRide] = useState(1);
     const [selectedItinerary, setSelectedItinerary] = useState(1);
 
@@ -30,11 +30,11 @@ function AddRide( {user} ) {
     }, [user.id])
     
     const rideNames = rideList.map((ride) => {
-        return <option value={ride.id}>{ride.name}</option>
+        return <option key={ride.id} value={ride.id}>{ride.name}</option>
     })
 
     const userItineraryList = userItineraries.map((itinerary) => {
-        return <option value={itinerary.id}>{itinerary.date}</option>
+        return <option key={itinerary.id} value={itinerary.id}>{itinerary.date}</option>
     })
 
     function handleTimeChange(e) {
@@ -60,13 +60,13 @@ function AddRide( {user} ) {
             body: JSON.stringify(formInfo),
         })
             .then(response => response.json())
-            .then((data) => console.log(data));
+            .then(() => setCurrentItinerary(""));
     }
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <label for="time">Choose a time:</label>
+                <label htmlFor="time">Choose a time:</label>
                 <select value={selectedItinerary} onChange={handleItineraryChange}>
                 {userItineraryList}
                 </select>

@@ -6,7 +6,7 @@ import ItineraryContainer from './ItineraryContainer';
 import Profile from './Profile';
 import RideContainer from './RideContainer';
 
-function Navbar({ user, setUser, setShowHome, currentItinerary, setCurrentItinerary }) {
+function Navbar({ user, setUser, setShowHome, currentItinerary, setCurrentItinerary, itineraries, setItineraries}) {
 
   return (
     <div>
@@ -27,10 +27,10 @@ function Navbar({ user, setUser, setShowHome, currentItinerary, setCurrentItiner
 
       <Switch>
         <Route exact path="/trips/create">
-          <CreateItinerary user={user} setShowHome={setShowHome} />
+          <CreateItinerary user={user} setShowHome={setShowHome} currentItinerary={currentItinerary} setCurrentItinerary={setCurrentItinerary} itineraries={itineraries} setItineraries={setItineraries} />
         </Route>
         <Route exact path="/trips">
-          <ItineraryContainer user={user} setUser={setUser} setShowHome={setShowHome} currentItinerary={currentItinerary} setCurrentItinerary={setCurrentItinerary}/>
+          <ItineraryContainer user={user} setUser={setUser} setShowHome={setShowHome} currentItinerary={currentItinerary} setCurrentItinerary={setCurrentItinerary} itineraries={itineraries} setItineraries={setItineraries} />
         </Route>
         <Route exact path="/rides">
           <RideContainer setShowHome={setShowHome}/>

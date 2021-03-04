@@ -12,7 +12,7 @@ function SelectedItinerary({ currentItinerary, setCurrentItinerary, itineraries,
 
     return (
         <div>
-            <h2>{date}</h2>
+            {/* <h2>{date}</h2> */}
             {importedRide}
         </div>
     )

@@ -1,14 +1,13 @@
 import { useState, useEffect } from 'react';
 import ItineraryList from './ItineraryList';
 
-function ItineraryContainer( { currentItinerary, setCurrentItinerary, user, setShowHome} ) {
+function ItineraryContainer( { itineraries, setItineraries, currentItinerary, setCurrentItinerary, user, setShowHome} ) {
 
   const toggleHome = setShowHome(false)
-  const [ itineraries, setItineraries ] = useState([]);
+  
   const { id } = user;
 
-  console.log("IC", id)
-
+  // console.log('itinerary container', itineraries)
 
   useEffect(() => {
     fetch(`http://[::1]:3001/users/${id}`)

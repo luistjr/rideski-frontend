@@ -18,13 +18,12 @@ function ItineraryItem({ currentItinerary, setCurrentItinerary, itinerary, itine
   function selectedItem(){
     if (currentItinerary !== ""){
       return <SelectedItinerary currentItinerary={currentItinerary} setCurrentItinerary={setCurrentItinerary} itineraries={itineraries} setItineraries={setItineraries} user={user}/>
-    } 
+    }
   }
 
   return (
     <div>
-      <p>{first_name}'s Trips</p>
-      <p onClick={handleDateClick} id={id}>{date}</p> 
+      <h1 onClick={handleDateClick} id={id}>{date}</h1> 
       {selectedItem()}
     </div>
   );

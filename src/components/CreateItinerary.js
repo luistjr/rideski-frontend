@@ -3,8 +3,10 @@ import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
 import AddRide from './AddRide';
 
-function CreateItinerary({ user, setShowHome }) {
+function CreateItinerary({ user, setShowHome, currentItinerary, setCurrentItinerary, itineraries, setItineraries }) {
 
+  console.log(' create itinerary', itineraries)
+  
   const toggleHome = setShowHome(false)
   const [date, setDate] = useState(new Date());
   const [showCalendar, setShowCalendar] = useState(false);
@@ -50,8 +52,10 @@ function CreateItinerary({ user, setShowHome }) {
       }),
     })
       .then(response => response.json())
-      .then(data => console.log("UI", data));
+      .then(data => setItineraries([...itineraries, data]));
   }
+
+  
 
 
 function handleDateClick() {
@@ -70,7 +74,7 @@ return (
     <button onClick={handleAddRides}>Add Rides to Existing Itinerary</button>
     <br />
     <br />
-    {addRides ? <AddRide user={user}/> : <button onClick={handleDateClick}>Create New Itinerary </button>}
+    {addRides ? <AddRide user={user} currentItinerary={currentItinerary} setCurrentItinerary={setCurrentItinerary}/> : <button onClick={handleDateClick}>Create New Itinerary </button>}
     {showCalendar ? <form onSubmit={handleSubmit}>
       <Calendar onChange={setDate} value={date} />
       <br />
