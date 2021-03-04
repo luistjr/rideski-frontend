@@ -9,12 +9,12 @@ function App() {
   const [user, setUser] = useState(null);
   const [showHome, setShowHome] = useState(true);
 
-  const [ itineraries, setItineraries ] = useState([]);
+  const [itineraries, setItineraries ] = useState([]);
   const [currentItinerary, setCurrentItinerary] = useState("");
 
   // array of currentItinerary is still 0 even when rides are added 
 
-  console.log("CI - App", currentItinerary);
+  // console.log("CI - App", currentItinerary);
   
   return (
     <div>

@@ -5,8 +5,8 @@ import AddRide from './AddRide';
 
 function CreateItinerary({ user, setShowHome, currentItinerary, setCurrentItinerary, itineraries, setItineraries }) {
 
-  console.log(' create itinerary', itineraries)
-  
+  // console.log(' create itinerary', itineraries)
+
   const toggleHome = setShowHome(false)
   const [date, setDate] = useState(new Date());
   const [showCalendar, setShowCalendar] = useState(false);
@@ -21,8 +21,6 @@ function CreateItinerary({ user, setShowHome, currentItinerary, setCurrentItiner
   const itineraryDate = {
     date: newDate
   };
-
-  console.log("newDate", itineraryDate)
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -55,34 +53,32 @@ function CreateItinerary({ user, setShowHome, currentItinerary, setCurrentItiner
       .then(data => setItineraries([...itineraries, data]));
   }
 
-  
 
+  function handleDateClick() {
+    setShowCalendar(true)
+  }
 
-function handleDateClick() {
-  setShowCalendar(true)
-}
+  function handleAddRides() {
+    setAddRides(true);
+  }
 
-function handleAddRides() {
-  setAddRides(true);
-}
-
-return (
-  <div>
-    {toggleHome}
-    <br />
-    <br />
-    <button onClick={handleAddRides}>Add Rides to Existing Itinerary</button>
-    <br />
-    <br />
-    {addRides ? <AddRide user={user} currentItinerary={currentItinerary} setCurrentItinerary={setCurrentItinerary}/> : <button onClick={handleDateClick}>Create New Itinerary </button>}
-    {showCalendar ? <form onSubmit={handleSubmit}>
-      <Calendar onChange={setDate} value={date} />
+  return (
+    <div>
+      {toggleHome}
       <br />
-      <input type="submit" />
-    </form> : null}
-  </div>
+      <br />
+      <button onClick={handleAddRides}>Add Rides to Existing Itinerary</button>
+      <br />
+      <br />
+      {addRides ? <AddRide user={user} currentItinerary={currentItinerary} setCurrentItinerary={setCurrentItinerary} /> : <button onClick={handleDateClick}>Create New Itinerary </button>}
+      {showCalendar ? <form onSubmit={handleSubmit}>
+        <Calendar onChange={setDate} value={date} />
+        <br />
+        <input type="submit" />
+      </form> : null}
+    </div>
 
-);
+  );
 }
 
 export default CreateItinerary;

@@ -5,8 +5,6 @@ function UpdateProfile({ user, setUser }) {
 
   const { id, first_name, last_name, email, username, password, img } = user
 
-  console.log("update profiile", id);
-
   // let history = useHistory();
 
   const [updateFirstName, setUpdateFirstName] = useState(first_name);

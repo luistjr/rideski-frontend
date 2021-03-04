@@ -16,8 +16,6 @@ function AddRide( { user, currentItinerary, setCurrentItinerary } ) {
         time: time
     }
 
-    console.log("form info", formInfo)
-
     useEffect(() => {
         fetch('http://[::1]:3001/rides')
         .then(response => response.json())
@@ -37,8 +35,6 @@ function AddRide( { user, currentItinerary, setCurrentItinerary } ) {
     const userItineraryList = userItineraries.map((itinerary) => {
         return <option key={itinerary.id} value={itinerary.id}>{itinerary.date}</option>
     })
-
-    console.log('time', time)
 
     function handleRideChange(e) {
         setSelectedRide(e.target.value)
@@ -68,6 +64,8 @@ function AddRide( { user, currentItinerary, setCurrentItinerary } ) {
         <div>
 
             <TimePicker onChange={setTime} value={time}/>
+            <br />
+            <br />
             <form onSubmit={handleSubmit}>
                 <label htmlFor="time">Choose a time:</label>
                 <select value={selectedItinerary} onChange={handleItineraryChange}>

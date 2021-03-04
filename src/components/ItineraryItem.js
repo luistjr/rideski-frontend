@@ -1,9 +1,8 @@
-import { useState } from 'react';
+import React from 'react';
 import SelectedItinerary from './SelectedItinerary';
 
 function ItineraryItem({ currentItinerary, setCurrentItinerary, itinerary, itineraries, setItineraries, user }) {
 
-  const { first_name } = user;
   const { id, date } = itinerary;
 
   function handleDateClick(e) {
@@ -13,7 +12,7 @@ function ItineraryItem({ currentItinerary, setCurrentItinerary, itinerary, itine
       .then(itineraryInfo => setCurrentItinerary(itineraryInfo));
   }
 
-  console.log('IT', currentItinerary);
+  console.log('itinerary item', currentItinerary);
 
   function selectedItem(){
     if (currentItinerary !== ""){

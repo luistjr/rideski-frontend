@@ -2,17 +2,11 @@ import React from 'react';
 import '../RideItem.css';
 
 function SelectedRideItem({ currentItinerary, setCurrentItinerary, ride, itineraries, setItineraries, user }) {
-    const { id, name, img, land, description, ride_itineraries } = ride;
+    const { name, img, land, description, ride_itineraries } = ride;
 
-    const options = {
-        hour: 'numeric',
-        minute: 'numeric',
-        hour12: true
-      };
+    const rideTime = ride_itineraries.map((rI) => rI.time)[0]
 
-    const rideTime = ride_itineraries.map((rI) => rI.time)
-
-    const rideItineraryId = ride_itineraries.map((rI) => rI.id)
+    const rideItineraryId = ride_itineraries.map((rI) => rI.id)[0]
 
     // console.log("set ride item itinerary", itineraries);
     console.log("selected ride item - current itinerary", currentItinerary);
@@ -70,7 +64,7 @@ function SelectedRideItem({ currentItinerary, setCurrentItinerary, ride, itinera
 
         // currentItinerary.rides = matchItineraryRides
         // console.log('NEW CURRENT', currentItinerary);
-        
+
         // setCurrentItinerary(currentItinerary)
     }
 
@@ -85,8 +79,12 @@ function SelectedRideItem({ currentItinerary, setCurrentItinerary, ride, itinera
             .then((data) => deleteItineraries(data.id))
     }
 
-    const checkFunction = function convertTime(){
-        if (parseInt(rideTime[0]) <= 12){
+    function handleEditButton() {
+        console.log('edit')
+    }
+
+    const checkFunction = function convertTime() {
+        if (parseInt(rideTime[0]) <= 12) {
             return parseInt(rideTime[0]) + " AM"
         } else {
             return (parseInt(rideTime[0]) - 12) + " PM"
@@ -102,6 +100,7 @@ function SelectedRideItem({ currentItinerary, setCurrentItinerary, ride, itinera
             <img src={img} alt={name} className="ride-img" />
             <h4>{land}</h4>
             <p>{description}</p>
+            <button onClick={handleEditButton} id={rideItineraryId}>Edit Time</button>
             <button onClick={handleDeleteEvent} id={rideItineraryId}>Remove Me</button>
             <hr />
         </div>

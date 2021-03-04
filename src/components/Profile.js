@@ -4,10 +4,7 @@ import UpdateProfile from './UpdateProfile';
 function Profile({user , setUser, setShowHome}) {
 
   const toggleHome = setShowHome(false)
-  const { id, first_name, email, img, username, } = user 
-
-  console.log('profile', {user})
-  console.log('profile id', id)
+  const { first_name, email, img, username, } = user 
   
   return (
     <div className="profile-div">
