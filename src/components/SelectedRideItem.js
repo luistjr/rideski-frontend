@@ -7,7 +7,7 @@ function SelectedRideItem({ currentItinerary, setCurrentItinerary, ride, itinera
 
     console.log("ride itineraries", ride_itineraries);
 
-    const rideTime = ride_itineraries.map((rI) => rI.time)[0]
+    const rideTime = ride_itineraries.map((rI) => parseInt(rI.time))[0]
 
     const rideItineraryId = ride_itineraries.map((rI) => rI.id)[0]
 
@@ -35,19 +35,17 @@ function SelectedRideItem({ currentItinerary, setCurrentItinerary, ride, itinera
         console.log('edit')
     }
 
-    // const checkFunction = function convertTime() {
-    //     if (parseInt(rideTime[0]) <= 12) {
-    //         return parseInt(rideTime[0]) + " AM"
-    //     } else {
-    //         return (parseInt(rideTime[0]) - 12) + " PM"
-    //     }
-    // }
-
-    // how to get the state updated
+    const correctTime = function convertTime() {
+        if (rideTime <= 12) {
+            return rideTime + " AM"
+        } else {
+            return (rideTime - 12) + " PM"
+        }
+    };
 
     return (
         <div>
-            <h3>{rideTime}</h3>
+            <h3>{correctTime()}</h3>
             <h1 className="ride-name">{name}</h1>
             <img src={img} alt={name} className="ride-img" />
             <h4>{land}</h4>
