@@ -16,7 +16,7 @@ function Header({ itineraries, setItineraries, user, setUser, showHome, setShowH
   return (
     <div>
       <h1>Header</h1>
-      {user ? <Navbar user={user} setUser={setUser} setShowHome={setShowHome} currentItinerary={currentItinerary} setCurrentItinerary={setCurrentItinerary} itineraries={itineraries}setItineraries={setItineraries}/> : null }
+      {user ? <Navbar user={user} setUser={setUser} setShowHome={setShowHome} currentItinerary={currentItinerary} setCurrentItinerary={setCurrentItinerary} itineraries={itineraries} setItineraries={setItineraries}/> : null }
       <br />
       <nav className="register-nav">
         {newUser()}
@@ -24,7 +24,7 @@ function Header({ itineraries, setItineraries, user, setUser, showHome, setShowH
 
       <Switch>
         <Route exact path="/login">
-          <Login user={user} setUser={setUser} />
+          <Login setUser={setUser} />
         </Route>
         <Route exact path="/signup">
           <Signup user={user} setUser={setUser} />

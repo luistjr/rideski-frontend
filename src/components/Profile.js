@@ -3,12 +3,12 @@ import UpdateProfile from './UpdateProfile';
 
 function Profile({user , setUser, setShowHome}) {
 
-  const toggleHome = setShowHome(false)
+  // const toggleHome = setShowHome(false)
   const { first_name, email, img, username, } = user 
   
   return (
     <div className="profile-div">
-      {toggleHome}
+      {/* {toggleHome} */}
       <br />
       <p>{first_name}'s Profile</p>
       <img src={img} alt={first_name} className="profile-img" />

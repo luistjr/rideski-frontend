@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import TimePicker from 'react-time-picker';
 
-function AddRide( { user, currentItinerary, setCurrentItinerary } ) {
+function AddRide( { user } ) {
 
     const [rideList, setRideList] = useState([]);
     const [userItineraries, setUserItineraries] = useState([]);
@@ -55,10 +55,8 @@ function AddRide( { user, currentItinerary, setCurrentItinerary } ) {
             body: JSON.stringify(formInfo),
         })
             .then(response => response.json())
-            .then(() => setCurrentItinerary(""));
+            .then((data) => console.log(data));
     }
-
-    console.log(' addride', currentItinerary)
 
     return (
         <div>

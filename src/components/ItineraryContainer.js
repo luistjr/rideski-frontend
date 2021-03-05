@@ -1,9 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import ItineraryList from './ItineraryList';
 
-function ItineraryContainer({ itineraries, setItineraries, currentItinerary, setCurrentItinerary, user, setShowHome }) {
+function ItineraryContainer({ itineraries, setItineraries, user, setShowHome }) {
 
-  const toggleHome = setShowHome(false)
+  const [currentItinerary, setCurrentItinerary] = useState("");
+
+  console.log("container", {itineraries})
+  
+  // const toggleHome = setShowHome(false)
 
   const { id } = user;
 
@@ -13,11 +17,11 @@ function ItineraryContainer({ itineraries, setItineraries, currentItinerary, set
     fetch(`http://[::1]:3001/users/${id}`)
       .then(r => r.json())
       .then(data => setItineraries(data.itineraries));
-  }, [setItineraries, id]);
+  }, [id, setItineraries]);
 
   return (
     <div>
-      {toggleHome}
+      {/* {toggleHome} */}
       <ItineraryList itineraries={itineraries} user={user} setItineraries={setItineraries} currentItinerary={currentItinerary} setCurrentItinerary={setCurrentItinerary} />
     </div>
   );

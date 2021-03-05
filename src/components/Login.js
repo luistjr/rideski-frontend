@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 
 import '../Login.css';
 
-function Login({ user, setUser }) {
+function Login({ setUser }) {
 
   let history = useHistory();
 
