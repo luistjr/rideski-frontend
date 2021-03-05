@@ -3,7 +3,6 @@ import ItineraryList from './ItineraryList';
 
 function ItineraryContainer({ itineraries, setItineraries, user, setShowHome }) {
 
-  const [currentItinerary, setCurrentItinerary] = useState("");
 
   console.log("container", {itineraries})
   
@@ -22,7 +21,7 @@ function ItineraryContainer({ itineraries, setItineraries, user, setShowHome }) 
   return (
     <div>
       {/* {toggleHome} */}
-      <ItineraryList itineraries={itineraries} user={user} setItineraries={setItineraries} currentItinerary={currentItinerary} setCurrentItinerary={setCurrentItinerary} />
+      <ItineraryList itineraries={itineraries} user={user} setItineraries={setItineraries} />
     </div>
   );
 }
