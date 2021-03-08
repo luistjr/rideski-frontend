@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react';
 import TimePicker from 'react-time-picker';
+import { useHistory } from 'react-router-dom'; 
+
 
 function AddRide( { user } ) {
+
+    let history = useHistory();
 
     const [rideList, setRideList] = useState([]);
     const [userItineraries, setUserItineraries] = useState([]);
@@ -55,7 +59,7 @@ function AddRide( { user } ) {
             body: JSON.stringify(formInfo),
         })
             .then(response => response.json())
-            .then((data) => console.log(data));
+            .then((data) => history.push("/trips"));
     }
 
     return (

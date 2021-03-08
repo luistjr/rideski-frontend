@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import SelectedItinerary from './SelectedItinerary';
 
-function ItineraryItem({ itinerary, itineraries, setItineraries, user }) {
+function ItineraryItem({ itinerary, itineraries, setItineraries, user }){
   
   const [currentItinerary, setCurrentItinerary] = useState("");
 
@@ -12,8 +12,6 @@ function ItineraryItem({ itinerary, itineraries, setItineraries, user }) {
       .then(r => r.json())
       .then(itineraryInfo => setCurrentItinerary(itineraryInfo));
   }
-
-  console.log('itinerary item', currentItinerary);
 
   function selectedItem(){
     if (currentItinerary !== ""){

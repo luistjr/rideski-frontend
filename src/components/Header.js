@@ -2,6 +2,7 @@ import { Switch, Route, Link } from "react-router-dom";
 import Navbar from './Navbar';
 import Login from './Login';
 import Signup from './Signup';
+import '../Header.css';
 
 function Header({ itineraries, setItineraries, user, setUser, showHome, setShowHome, currentItinerary, setCurrentItinerary }) {
 
@@ -15,7 +16,7 @@ function Header({ itineraries, setItineraries, user, setUser, showHome, setShowH
 
   return (
     <div>
-      <h1>Header</h1>
+      <div id="header-image"><img src="http://[::1]:3001/images/rideski_header_img.jpg" alt="rideski. banner" /></div>
       {user ? <Navbar user={user} setUser={setUser} setShowHome={setShowHome} currentItinerary={currentItinerary} setCurrentItinerary={setCurrentItinerary} itineraries={itineraries} setItineraries={setItineraries}/> : null }
       <br />
       <nav className="register-nav">
