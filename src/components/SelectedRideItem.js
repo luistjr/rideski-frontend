@@ -4,11 +4,16 @@ import TimePicker from 'react-time-picker';
 
 function SelectedRideItem({ currentItinerary, setCurrentItinerary, ride }) {
 
+    console.log("selected ride item", { currentItinerary })
+
     const { id, name, img, land, description, ride_itineraries } = ride;
     const [updatedTime, setUpdatedTime] = useState('09:00');
     const [showUpdateTime, setShowUpdateTime] = useState(false);
 
+
     const rideTime = ride_itineraries.map((rI) => parseInt(rI.time))[0]
+
+    const [convertedTime, setConvertedTime] = useState(rideTime);
 
     const rideItineraryId = ride_itineraries.map((rI) => rI.id)[0]
 
@@ -29,44 +34,42 @@ function SelectedRideItem({ currentItinerary, setCurrentItinerary, ride }) {
             .then((data) => deleteItineraries(data.id))
     }
 
-    const correctTime = function convertTime() {
-        if (rideTime <= 12) {
-            return rideTime + " AM"
+    function convertTime() {
+        if (convertedTime <= 12) {
+            return convertedTime.toString() + " AM"
         } else {
-            return (rideTime - 12) + " PM"
+            return ((convertedTime - 12).toString()) + " PM"
         }
     };
 
+    console.log("converted time", convertedTime)
+
     function handleEditButton(e) {
-        console.log(e.target)
-        setShowUpdateTime(true);
-
-        return ride_itineraries.map((ride_itin) => {
-            if (ride_itin.id === e.target.id) {
-                console.log(ride_itin)
-                // console.log("ride it id", ride_itin.id)
-
-                fetch(`http://[::1]:3001/ride_itineraries/${ride_itin.id}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        ride_id: ride_itin.ride_id,
-                        itinerary_id: ride_itin.itinerary_id,
-                        time: updatedTime
-                    }),
-                })
-                    .then(response => response.json())
-                    .then((data) => console.log(data));
-
-            }
-        });
+        setShowUpdateTime(!showUpdateTime);
     };
+
+    function handleSubmitClick(e) {
+        fetch(`http://[::1]:3001/ride_itineraries/${e.target.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                time: updatedTime
+            }),
+        })
+            .then(response => response.json())
+            .then((data) => {
+                setShowUpdateTime(!showUpdateTime);
+                const timeInteger = parseInt(data.time)
+                setConvertedTime(timeInteger)
+            }
+            );
+    }
 
     return (
         <div>
-            <h3>{correctTime()}</h3>
+            <h3>{convertTime()}</h3>
             <h1 className="ride-name">{name}</h1>
             <img src={img} alt={name} className="ride-img" />
             <h4>{land}</h4>
@@ -75,7 +78,8 @@ function SelectedRideItem({ currentItinerary, setCurrentItinerary, ride }) {
             <button onClick={handleDeleteEvent} id={rideItineraryId}>Remove Me</button>
             <br />
             <br />
-            {showUpdateTime ? <div><TimePicker onChange={setUpdatedTime} value={updatedTime} /></div> : null}
+            {showUpdateTime ? <div><TimePicker onChange={setUpdatedTime} value={updatedTime} />
+                <button onClick={handleSubmitClick} id={rideItineraryId}>Submit</button></div> : null}
             <hr />
         </div>
     );
