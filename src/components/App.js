@@ -18,7 +18,7 @@ function App() {
   return (
     <div>
       <Header user={user} setUser={setUser} showHome={showHome} setShowHome={setShowHome} itineraries={itineraries} setItineraries={setItineraries} />
-      { user ? <Home user={user} showHome={showHome} setShowHome={setShowHome} /> : <h1>Please login or signup</h1> }
+      { user ? <Home user={user} showHome={showHome} setShowHome={setShowHome} /> : null }
     </div>
 
   );

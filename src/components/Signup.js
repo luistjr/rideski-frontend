@@ -41,7 +41,7 @@ function Signup( {user, setUser} ) {
   return (
     <div>
       <br />
-      <form onSubmit={handleSignupClick}>
+      <form onSubmit={handleSignupClick} class="ui button">
         <input type="text" name="firstname" placeholder="First Name" value={firstName} onChange={e => setFirstName(e.target.value)} />
         <input type="text" name="lastname" placeholder="Last Name" value={lastName} onChange={e => setLastName(e.target.value)} />
         <input type="text" name="email" placeholder="Email Address" value={email} onChange={e => setEmail(e.target.value)} />

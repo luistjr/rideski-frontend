@@ -36,9 +36,9 @@ function Login({ setUser }) {
   return (
     <div>
       <br />
-      <form onSubmit={handleLoginClick}>
-        <input type="text" name="username" placeholder="Username" value={formData.username} onChange={handleChange} autoComplete="off" />
-        <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} autoComplete="off"/>
+      <form onSubmit={handleLoginClick} >
+        <input type="text" name="username" placeholder="Username" value={formData.username} onChange={handleChange} autoComplete="off" class="ui button"/>
+        <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} autoComplete="off" class="ui button"/>
         <button type="submit">Submit</button>
       </form>
     </div>
