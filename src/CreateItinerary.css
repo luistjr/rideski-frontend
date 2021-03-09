@@ -3,3 +3,9 @@
     flex-direction: row;
     justify-content: center;
 }
+
+.create {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}

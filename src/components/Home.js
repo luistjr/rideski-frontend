@@ -7,7 +7,7 @@ function Home({ user, showHome }) {
   return (
     <div>
       {showHome ? <div>
-        <p>Welcome Home {first_name}!</p>
+        <h3>Welcome Home {first_name}!</h3>
         <img src='http://[::1]:3001/images/castle_home_animation.gif' alt="Disney Castle Animation" className="ui medium rounded image" />
         <br />
         <br />

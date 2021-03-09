@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../RideItem.css';
-import Carousel from 'react-elastic-carousel'
 
 function RideItem({ ride }) {
 

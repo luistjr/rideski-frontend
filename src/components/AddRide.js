@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import TimePicker from 'react-time-picker';
 import { useHistory } from 'react-router-dom'; 
+import '../AddRide.css';
 
 
 function AddRide( { user } ) {
@@ -63,8 +64,7 @@ function AddRide( { user } ) {
     }
 
     return (
-        <div>
-
+        <div className="add-time">
             <TimePicker onChange={setTime} value={time}/>
             <br />
             <br />

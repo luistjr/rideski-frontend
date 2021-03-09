@@ -10,7 +10,7 @@ function RideContainer({ setShowHome }) {
     .then(data => {
       setRides(data)
       setShowHome(false)})
-    }, [])
+    }, [setShowHome])
 
   return (
     <div>

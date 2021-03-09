@@ -63,18 +63,24 @@ function CreateItinerary({ user, setShowHome, itineraries, setItineraries }) {
 
   return (
     <div>
-      {/* {toggleHome} */}
       <br />
       <br />
-      <button onClick={handleAddRides} className="ui button" id="addition">Add Rides to Existing Itinerary</button>
-      <br />
-      <br />
-      {addRides ? <AddRide user={user} /> : <button onClick={handleDateClick} className="ui button" id="addition">Create New Itinerary </button>}
-      {showCalendar ? <form onSubmit={handleSubmit}>
-        <Calendar onChange={setDate} value={date} />
+      <div className="create">
+        {/* {toggleHome} */}
+        <button onClick={handleAddRides} className="ui button" >Add Rides to Existing Itinerary</button>
+        </div>
         <br />
-        <input type="submit" />
-      </form> : null}
+        <br />
+        <div className="create">
+        {addRides ? <AddRide user={user} /> : <button onClick={handleDateClick} className="ui button">Create New Itinerary </button>}
+        </div>
+        < br />
+        < br />
+        {showCalendar ? <form onSubmit={handleSubmit}>
+          <Calendar onChange={setDate} value={date} />
+          <br />
+          <input type="submit" />
+        </form> : null}
     </div>
 
   );

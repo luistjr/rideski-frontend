@@ -14,8 +14,8 @@ function Profile({user , setUser, setShowHome}) {
       <img src={img} alt={first_name} className="ui avatar image" />
       <h4>Email: {email}</h4>
       <h4>Username: {username}</h4>
-      <button>Update Account</button>
-      <button>Logout</button>
+      <button className="ui button">Update Account</button>
+      <button className="ui basic button">Logout</button>
       <UpdateProfile user={user} setUser={setUser}/>
     </div>
 

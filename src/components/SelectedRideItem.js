@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
-import '../RideItem.css';
 import TimePicker from 'react-time-picker';
+import '../SelectedRideItem.css';
 
 function SelectedRideItem({ currentItinerary, setCurrentItinerary, ride }) {
-
-    console.log("selected ride item", { currentItinerary })
 
     const { id, name, img, land, description, ride_itineraries } = ride;
     const [updatedTime, setUpdatedTime] = useState('09:00');
     const [showUpdateTime, setShowUpdateTime] = useState(false);
-
 
     const rideTime = ride_itineraries.map((rI) => parseInt(rI.time))[0]
 
@@ -42,8 +39,6 @@ function SelectedRideItem({ currentItinerary, setCurrentItinerary, ride }) {
         }
     };
 
-    console.log("converted time", convertedTime)
-
     function handleEditButton(e) {
         setShowUpdateTime(!showUpdateTime);
     };
@@ -69,13 +64,19 @@ function SelectedRideItem({ currentItinerary, setCurrentItinerary, ride }) {
 
     return (
         <div>
-            <h3>{convertTime()}</h3>
-            <h1 className="ride-name">{name}</h1>
+                <h3>{convertTime()}</h3>
+                <h2 className="ride-name">{name}</h2>
             <img src={img} alt={name} className="ride-img" />
             <h4>{land}</h4>
             <p>{description}</p>
-            <button onClick={handleEditButton} id={rideItineraryId}>Edit Time</button>
-            <button onClick={handleDeleteEvent} id={rideItineraryId}>Remove Me</button>
+            <div className="selected-item-btn">
+            <button onClick={handleEditButton} id={rideItineraryId} className="ui button">Edit Time</button>
+            </div>
+            <br />
+            <div className="selected-item-btn">
+            <button onClick={handleDeleteEvent} id={rideItineraryId} className="ui button">Remove Me</button>
+            </div>
+            
             <br />
             <br />
             {showUpdateTime ? <div><TimePicker onChange={setUpdatedTime} value={updatedTime} />
