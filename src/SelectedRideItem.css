@@ -4,14 +4,12 @@
     justify-content: center;
 }
 
-
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    width: 20%;
+    width: 350px;
     height: auto;
-    display: grid;
-    /* flex-direction: row; */
+    margin: 10px;
   }
   
   .card:hover {
@@ -20,9 +18,14 @@
   
   .container {
     padding: 2px 16px;
+    text-align: center;
   }
 
   .selected-ride-img {
       width: 100%;
       height: auto;
+  }
+
+  .land-description {
+    text-align: center;
   }

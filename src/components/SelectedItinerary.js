@@ -1,6 +1,7 @@
 import React from 'react';
 import SelectedRideItem from './SelectedRideItem';
 import '../SelectedItinerary.css';
+import styled from "styled-components";
 
 function SelectedItinerary({ currentItinerary, setCurrentItinerary, itineraries, setItineraries, user }) {
 
@@ -10,11 +11,18 @@ function SelectedItinerary({ currentItinerary, setCurrentItinerary, itineraries,
         return <SelectedRideItem ride={ride} key={ride.id} currentItinerary={currentItinerary} setCurrentItinerary={setCurrentItinerary} itineraries={itineraries} setItineraries={setItineraries} user={user} />
     })
 
-return (
-    <div>
-        {currentItinerary.rides ? importedRide : null}
-    </div>
-)
+    return (
+        <div>
+            <Ride>
+                {currentItinerary.rides ? importedRide : null}
+            </Ride>
+        </div>
+    )
 }
 
 export default SelectedItinerary;
+
+const Ride = styled.div`
+    display: flex;
+    justify-content: center;
+`

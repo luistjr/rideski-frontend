@@ -65,25 +65,24 @@ function SelectedRideItem({ currentItinerary, setCurrentItinerary, ride }) {
     return (
         <div className="card">
             <div className="container">
-            <h3>{convertTime()}</h3>
-            <h2>{name}</h2>
-            
-            <img src={img} alt={name} className="selected-ride-img" />
-            <h4>{land}</h4>
-            <p>{description}</p>
-            <div className="selected-item-btn">
-                <button onClick={handleEditButton} id={rideItineraryId} className="ui button">Edit Time</button>
-            </div>
-            <br />
-            <div className="selected-item-btn">
-                <button onClick={handleDeleteEvent} id={rideItineraryId} className="ui button">Remove Me</button>
-            </div>
+                <h3>{convertTime()}</h3>
+                <h2>{name}</h2>
 
-            <br />
-            <br />
-            {showUpdateTime ? <div><TimePicker onChange={setUpdatedTime} value={updatedTime} />
-                <button onClick={handleSubmitClick} id={rideItineraryId}>Submit</button></div> : null}
-            <hr />
+                <img src={img} alt={name} className="selected-ride-img" />
+                <h4 className="land-description">{land}</h4>
+                <p>{description}</p>
+                <div className="selected-item-btn">
+                    <button onClick={handleEditButton} id={rideItineraryId} className="ui button">Edit Time</button>
+                </div>
+                <br />
+                <div className="selected-item-btn">
+                    <button onClick={handleDeleteEvent} id={rideItineraryId} className="ui button">Remove Me</button>
+                </div>
+
+                <br />
+                <br />
+                {showUpdateTime ? <div><TimePicker onChange={setUpdatedTime} value={updatedTime} />
+                    <button onClick={handleSubmitClick} id={rideItineraryId}>Submit</button></div> : null}
             </div>
         </div>
 
