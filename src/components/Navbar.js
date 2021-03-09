@@ -10,7 +10,7 @@ function Navbar({ user, setUser, setShowHome, itineraries, setItineraries}) {
 
   return (
     <div>
-      <nav className="nav-bar">
+      <nav className="ui button">
         <Link className="button" to="/trips/create">
           Create
         </Link>

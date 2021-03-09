@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
+import '../CreateItinerary.css';
 import AddRide from './AddRide';
 
 function CreateItinerary({ user, setShowHome, itineraries, setItineraries }) {
@@ -65,10 +66,10 @@ function CreateItinerary({ user, setShowHome, itineraries, setItineraries }) {
       {/* {toggleHome} */}
       <br />
       <br />
-      <button onClick={handleAddRides}>Add Rides to Existing Itinerary</button>
+      <button onClick={handleAddRides} className="ui button" id="addition">Add Rides to Existing Itinerary</button>
       <br />
       <br />
-      {addRides ? <AddRide user={user} /> : <button onClick={handleDateClick}>Create New Itinerary </button>}
+      {addRides ? <AddRide user={user} /> : <button onClick={handleDateClick} className="ui button" id="addition">Create New Itinerary </button>}
       {showCalendar ? <form onSubmit={handleSubmit}>
         <Calendar onChange={setDate} value={date} />
         <br />

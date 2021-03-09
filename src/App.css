@@ -1,3 +1,9 @@
 p {
   text-align: center;
 }
+
+.update-form{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}

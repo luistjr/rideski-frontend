@@ -8,7 +8,8 @@ function Home({ user, showHome }) {
     <div>
       {showHome ? <div>
         <p>Welcome Home {first_name}!</p>
-        <img src='http://[::1]:3001/images/castle_animation.gif' alt="Disney Castle Animation" className="anim-home" />
+        <img src='http://[::1]:3001/images/castle_home_animation.gif' alt="Disney Castle Animation" className="ui medium rounded image" />
+        <br />
         <br />
         </div> : null}
     </div>

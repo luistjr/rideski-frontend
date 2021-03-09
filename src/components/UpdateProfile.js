@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import '../App.css';
 // import { useHistory } from 'react-router-dom';
 
 function UpdateProfile({ user, setUser }) {
@@ -42,16 +43,15 @@ function UpdateProfile({ user, setUser }) {
 
   return (
     <div>
-      <br />
       <p>Update Your Account Details</p>
 
-      <form onSubmit={handleUpdateClick}>
-        <input type="text" name="firstname" placeholder="First Name" value={updateFirstName} onChange={e => setUpdateFirstName(e.target.value)} />
-        <input type="text" name="lastname" placeholder="Last Name" value={updateLastName} onChange={e => setUpdateLastName(e.target.value)} />
-        <input type="text" name="email" placeholder="Email Address" value={updateEmail} onChange={e => setUpdateEmail(e.target.value)} />
-        <input type="text" name="username" placeholder="Username" value={updateUsername} onChange={e => setUpdateUsername(e.target.value)} />
-        <input type="password" name="password" placeholder="Password" value={updatePassword} onChange={e => setUpdatePassword(e.target.value)} />
-        <button type="submit">Submit</button>
+      <form onSubmit={handleUpdateClick} className="update-form">
+        <input type="text" name="firstname" placeholder="First Name" value={updateFirstName} onChange={e => setUpdateFirstName(e.target.value)} className="ui button"/>
+        <input type="text" name="lastname" placeholder="Last Name" value={updateLastName} onChange={e => setUpdateLastName(e.target.value)} className="ui button"/>
+        <input type="text" name="email" placeholder="Email Address" value={updateEmail} onChange={e => setUpdateEmail(e.target.value)} className="ui button"/>
+        <input type="text" name="username" placeholder="Username" value={updateUsername} onChange={e => setUpdateUsername(e.target.value)} className="ui button"/>
+        <input type="password" name="password" placeholder="Password" value={updatePassword} onChange={e => setUpdatePassword(e.target.value)} className="ui button"/>
+        <button type="submit" >Submit </button>
       </form>
     </div>
 

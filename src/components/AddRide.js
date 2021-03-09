@@ -59,7 +59,7 @@ function AddRide( { user } ) {
             body: JSON.stringify(formInfo),
         })
             .then(response => response.json())
-            .then((data) => history.push("/trips"));
+            .then(() => history.push("/trips"));
     }
 
     return (
