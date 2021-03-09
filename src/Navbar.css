@@ -4,8 +4,7 @@
 }
 
 .button {
-    background-color: #cde5d7
-    ;
+    background-color: #cde5d7;
     border: white;
     color: black;
     padding: 15px 32px;
@@ -17,7 +16,6 @@
 
 .new-button {
     background-color: #cde5d7;
-    border: none;
     color: black;
     padding: 15px 32px;
     text-align: center;

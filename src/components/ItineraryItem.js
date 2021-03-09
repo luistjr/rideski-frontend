@@ -22,9 +22,9 @@ function ItineraryItem({ itinerary, itineraries, setItineraries, user }) {
 
   return (
     <div>
-      <h2 class="ui header">
-        <img class="ui image" src="http://[::1]:3001/images/mickey_icon.png" />
-        <div class="content">
+
+      <h2 className="ui header">
+        <div className="content">
           <p onClick={handleDateClick} id={id}>{date}</p>
           {selectedItem()}
         </div>

@@ -39,18 +39,19 @@ function Signup( {user, setUser} ) {
   return (
     <div>
       <br />
-      <form onSubmit={handleSignupClick} class="ui button">
-        <input type="text" name="firstname" placeholder="First Name" value={firstName} onChange={e => setFirstName(e.target.value)} />
+      <br />
+      <form onSubmit={handleSignupClick}>
+        <input type="text" name="firstname" placeholder="First Name" value={firstName} onChange={e => setFirstName(e.target.value)} className="ui button"/>
 
-        <input type="text" name="lastname" placeholder="Last Name" value={lastName} onChange={e => setLastName(e.target.value)} />
+        <input type="text" name="lastname" placeholder="Last Name" value={lastName} onChange={e => setLastName(e.target.value)} className="ui button"/>
 
-        <input type="text" name="email" placeholder="Email Address" value={email} onChange={e => setEmail(e.target.value)} />
+        <input type="text" name="email" placeholder="Email Address" value={email} onChange={e => setEmail(e.target.value)} className="ui button"/>
 
-        <input type="text" name="username" autoComplete="username" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} />
+        <input type="text" name="username" autoComplete="username" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} className="ui button"/>
 
-        <input type="password" name="password" autoComplete="current-password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
+        <input type="password" name="password" autoComplete="current-password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} className="ui button"/>
 
-        <button type="submit">Submit</button>
+        <button type="submit" className="ui button">Submit</button>
       </form>
     </div>
 
