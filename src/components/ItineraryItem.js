@@ -22,14 +22,13 @@ function ItineraryItem({ itinerary, itineraries, setItineraries, user }) {
 
   return (
     <div>
-
       <h2 className="ui header">
         <div className="content">
           <p onClick={handleDateClick} id={id}>{date}</p>
           {selectedItem()}
         </div>
+        
       </h2>
-
     </div>
   );
 }

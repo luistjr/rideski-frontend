@@ -63,27 +63,29 @@ function SelectedRideItem({ currentItinerary, setCurrentItinerary, ride }) {
     }
 
     return (
-        <div className="card">
-            <div className="container">
-                <h3>{convertTime()}</h3>
-                <h2>{name}</h2>
-
-                <img src={img} alt={name} className="selected-ride-img" />
-                <h4 className="land-description">{land}</h4>
-                <p>{description}</p>
-                <div className="selected-item-btn">
-                    <button onClick={handleEditButton} id={rideItineraryId} className="ui button">Edit Time</button>
+<div><h4 className="time-layout">{convertTime()}</h4>
+        <div className="flip-card">
+            
+            <div className="flip-card-inner">
+                <div className="flip-card-front">
+                    <img src={img} alt={name} className="selected-ride-img" />
                 </div>
-                <br />
-                <div className="selected-item-btn">
-                    <button onClick={handleDeleteEvent} id={rideItineraryId} className="ui button">Remove Me</button>
+                <div className="flip-card-back">
+                    <h2>{name}</h2>
+                    <h4 className="land-description">{land}</h4>
+                    <p>{description}</p>
+                    <div className="selected-item-btn">
+                        <button onClick={handleEditButton} id={rideItineraryId} className="ui button">Edit Time</button>
+                    </div>
+                    <br />
+                    <div className="selected-item-btn">
+                        <button onClick={handleDeleteEvent} id={rideItineraryId} className="ui button">Remove Me</button>
+                    </div>
+                    {showUpdateTime ? <div><TimePicker onChange={setUpdatedTime} value={updatedTime} />
+                        <button onClick={handleSubmitClick} id={rideItineraryId}>Submit</button></div> : null}
                 </div>
-
-                <br />
-                <br />
-                {showUpdateTime ? <div><TimePicker onChange={setUpdatedTime} value={updatedTime} />
-                    <button onClick={handleSubmitClick} id={rideItineraryId}>Submit</button></div> : null}
             </div>
+        </div>
         </div>
 
     );

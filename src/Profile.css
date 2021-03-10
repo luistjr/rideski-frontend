@@ -1,5 +1,6 @@
 .profile-div {
     display: block;
+    text-align: center;
     /* margin-left: auto;
     margin-right: auto; */
 }
@@ -10,5 +11,17 @@
     margin-right: auto;
     width: 150px;
     height: auto;
+}
+
+.logout-btn{
+    display: block;
+    text-align: center;
+    justify-content: center;
+    background-color: #cde5d7;
+    border: white;
+    color: black;
+    padding: 15px 32px;
+    text-decoration: none;
+    font-size: 18px;
 }
 

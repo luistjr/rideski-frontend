@@ -36,6 +36,8 @@ function Signup( {user, setUser} ) {
       })
   };
 
+  console.log('sign up', {user})
+
   return (
     <div>
       <br />

@@ -5,6 +5,7 @@ import CreateItinerary from './CreateItinerary';
 import ItineraryContainer from './ItineraryContainer';
 import Profile from './Profile';
 import RideContainer from './RideContainer';
+import Logout from './Logout';
 
 function Navbar({ user, setUser, setShowHome, itineraries, setItineraries}) {
 
@@ -23,6 +24,9 @@ function Navbar({ user, setUser, setShowHome, itineraries, setItineraries}) {
         <Link className="button" to="/profile">
           Profile
         </Link>
+        <Link className="button" to="/logout">
+          Logout
+        </Link>
       </nav>
 
       <Switch>
@@ -37,6 +41,9 @@ function Navbar({ user, setUser, setShowHome, itineraries, setItineraries}) {
         </Route>
         <Route exact path="/profile">
           <Profile user={user} setUser={setUser} setShowHome={setShowHome}/>
+        </Route>
+        <Route exact path="/logout">
+          <Logout setUser={setUser} />
         </Route>
       </Switch>
     </div>
