@@ -6,6 +6,7 @@ import ItineraryContainer from './ItineraryContainer';
 import Profile from './Profile';
 import RideContainer from './RideContainer';
 import Logout from './Logout';
+import ParkMap from './ParkMap';
 
 function Navbar({ user, setUser, setShowHome, itineraries, setItineraries}) {
 
@@ -35,6 +36,9 @@ function Navbar({ user, setUser, setShowHome, itineraries, setItineraries}) {
         </Route>
         <Route exact path="/trips">
           <ItineraryContainer user={user} setUser={setUser} setShowHome={setShowHome} itineraries={itineraries} setItineraries={setItineraries} />
+        </Route>
+        <Route exact path="/map">
+          <ParkMap/>
         </Route>
         <Route exact path="/rides">
           <RideContainer setShowHome={setShowHome}/>

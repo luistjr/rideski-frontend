@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import SelectedItinerary from './SelectedItinerary';
+import '../ItineraryItem.css';
 
 function ItineraryItem({ itinerary, itineraries, setItineraries, user }) {
 
@@ -20,15 +21,15 @@ function ItineraryItem({ itinerary, itineraries, setItineraries, user }) {
     }
   }
 
+  function handleRemoveItinerary(){
+    console.log('success')
+  }
+
   return (
     <div>
-      <h2 className="ui header">
-        <div className="content">
-          <p onClick={handleDateClick} id={id}>{date}</p>
+          <p onClick={handleDateClick} id={id} className="itinerary-date">{date}</p>
+          {/* <button onClick={handleRemoveItinerary} id={id}>Remove Itinerary</button> */}
           {selectedItem()}
-        </div>
-        
-      </h2>
     </div>
   );
 }

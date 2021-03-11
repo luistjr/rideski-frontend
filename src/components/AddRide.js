@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import TimePicker from 'react-time-picker';
-import { useHistory } from 'react-router-dom'; 
+import { useHistory } from 'react-router-dom';
 import '../AddRide.css';
 
 
-function AddRide( { user } ) {
+function AddRide({ user }) {
 
     let history = useHistory();
 
@@ -23,16 +23,16 @@ function AddRide( { user } ) {
 
     useEffect(() => {
         fetch('http://[::1]:3001/rides')
-        .then(response => response.json())
-        .then(data => setRideList(data));
+            .then(response => response.json())
+            .then(data => setRideList(data));
     }, [])
-    
+
     useEffect(() => {
         fetch(`http://[::1]:3001/users/${user.id}`)
-        .then(response => response.json())
-        .then(data => setUserItineraries(data.itineraries));
+            .then(response => response.json())
+            .then(data => setUserItineraries(data.itineraries));
     }, [user.id])
-    
+
     const rideNames = rideList.map((ride) => {
         return <option key={ride.id} value={ride.id}>{ride.name}</option>
     })
@@ -65,13 +65,14 @@ function AddRide( { user } ) {
 
     return (
         <div className="add-time">
-            <TimePicker onChange={setTime} value={time}/>
-            <br />
-            <br />
+                <TimePicker onChange={setTime} value={time} />
+                <br />
+                <br />
+
             <form onSubmit={handleSubmit}>
-                <label htmlFor="time">Choose a time:</label>
+                {/* <label htmlFor="time">Choose a time:</label> */}
                 <select value={selectedItinerary} onChange={handleItineraryChange}>
-                {userItineraryList}
+                    {userItineraryList}
                 </select>
                 <select value={selectedRide} onChange={handleRideChange}>
                     {rideNames}

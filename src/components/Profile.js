@@ -1,6 +1,5 @@
 import '../Profile.css';
 import UpdateProfile from './UpdateProfile';
-import { useHistory } from 'react-router-dom'; 
 
 function Profile({user , setUser, setShowHome}) {
 
@@ -8,8 +7,6 @@ function Profile({user , setUser, setShowHome}) {
   const { first_name, email, img, username, } = user 
   // const [displayUpdateProfile, setDisplayUpdateProfile] = useState(false);
 
-  let history = useHistory();
-  
   return (
     <div>
     <div className="profile-div">
