@@ -19,6 +19,9 @@ function Navbar({ user, setUser, setShowHome, itineraries, setItineraries}) {
         <Link className="button" to="/trips">
           My Trips
         </Link>
+        <Link className="button" to="/map">
+          Park Map
+        </Link>
         <Link className="button" to="/rides">
           All Rides
         </Link>
