@@ -1,6 +1,5 @@
 import React from 'react';
 import SelectedRideItem from './SelectedRideItem';
-import '../SelectedItinerary.css';
 import styled from "styled-components";
 
 function SelectedItinerary({ currentItinerary, setCurrentItinerary, itineraries, setItineraries, user }) {

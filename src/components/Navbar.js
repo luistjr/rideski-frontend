@@ -38,10 +38,10 @@ function Navbar({ user, setUser, setShowHome, itineraries, setItineraries}) {
           <CreateItinerary user={user} setShowHome={setShowHome} itineraries={itineraries} setItineraries={setItineraries} />
         </Route>
         <Route exact path="/trips">
-          <ItineraryContainer user={user} setUser={setUser} setShowHome={setShowHome} itineraries={itineraries} setItineraries={setItineraries} />
+          <ItineraryContainer user={user} setUser={setUser} setShowHome={setShowHome} itineraries={itineraries} setItineraries={setItineraries}/>
         </Route>
         <Route exact path="/map">
-          <ParkMap/>
+          <ParkMap setShowHome={setShowHome} />
         </Route>
         <Route exact path="/rides">
           <RideContainer setShowHome={setShowHome}/>

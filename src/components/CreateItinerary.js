@@ -6,7 +6,7 @@ import AddRide from './AddRide';
 
 function CreateItinerary({ user, setShowHome, itineraries, setItineraries }) {
 
-  // const toggleHome = setShowHome(false)
+  const toggleHome = setShowHome(false)
   const [date, setDate] = useState(new Date());
   const [showCalendar, setShowCalendar] = useState(false);
   const [addRides, setAddRides] = useState(false);
@@ -63,6 +63,7 @@ function CreateItinerary({ user, setShowHome, itineraries, setItineraries }) {
 
   return (
     <div>
+      {toggleHome}
       <br />
       <br />
       <div className="create">

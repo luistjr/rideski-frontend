@@ -28,7 +28,7 @@ function ItineraryItem({ itinerary, itineraries, setItineraries, user }) {
   return (
     <div>
           <p onClick={handleDateClick} id={id} className="itinerary-date">{date}</p>
-          {/* <button onClick={handleRemoveItinerary} id={id}>Remove Itinerary</button> */}
+          <button onClick={handleRemoveItinerary} id={id}>Remove Itinerary</button>
           {selectedItem()}
     </div>
   );

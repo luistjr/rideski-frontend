@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import TimePicker from 'react-time-picker';
 import { useHistory } from 'react-router-dom';
-import '../AddRide.css';
 
 
 function AddRide({ user }) {
