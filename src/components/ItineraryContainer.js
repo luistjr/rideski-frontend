@@ -15,7 +15,6 @@ function ItineraryContainer({ itineraries, setItineraries, user, setShowHome }) 
 
   return (
     <div>
-      {/* {toggleHome} */}
       <ItineraryList itineraries={itineraries} user={user} setItineraries={setItineraries} />
     </div>
   );

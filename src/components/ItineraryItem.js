@@ -21,17 +21,23 @@ function ItineraryItem({ itinerary, itineraries, setItineraries, user }) {
     }
   }
 
-  function handleRemoveItinerary(){
-    console.log('success')
-  }
+  function handleRemoveItinerary(e) {
+    // console.log(e.target.id)
 
-  return (
-    <div>
-          <p onClick={handleDateClick} id={id} className="itinerary-date">{date}</p>
-          <button onClick={handleRemoveItinerary} id={id}>Remove Itinerary</button>
-          {selectedItem()}
-    </div>
-  );
+    fetch(`http://[::1]:3001/itineraries/${e.target.id}`, {
+      method: 'DELETE'
+    })
+      .then(res => res.json())
+      .then(data => console.log("success", data))
+  };
+
+return (
+  <div>
+    <p onClick={handleDateClick} id={id} className="itinerary-date">{date}</p>
+    <button onClick={handleRemoveItinerary} id={id}>Remove Itinerary</button>
+    {selectedItem()}
+  </div>
+);
 }
 
 export default ItineraryItem;

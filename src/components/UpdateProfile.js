@@ -50,7 +50,7 @@ function UpdateProfile({ user, setUser }) {
         <input type="text" name="lastname" placeholder="Last Name" value={updateLastName} onChange={e => setUpdateLastName(e.target.value)} className="ui button"/>
         <input type="text" name="email" placeholder="Email Address" value={updateEmail} onChange={e => setUpdateEmail(e.target.value)} className="ui button"/>
         <input type="text" name="username" placeholder="Username" value={updateUsername} onChange={e => setUpdateUsername(e.target.value)} className="ui button"/>
-        <input type="password" name="password" placeholder="Password" value={updatePassword} onChange={e => setUpdatePassword(e.target.value)} className="ui button"/>
+        <input type="current-password" name="current-password" placeholder="Password" value={updatePassword} onChange={e => setUpdatePassword(e.target.value)} className="ui button"/>
         <button type="submit" >Submit </button>
       </form>
     </div>
