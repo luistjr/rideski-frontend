@@ -14,11 +14,15 @@ function AddRide({ user }) {
     const [selectedRide, setSelectedRide] = useState(1);
     const [selectedItinerary, setSelectedItinerary] = useState(1);
 
+    console.log("user itineraries", userItineraries)
+
     const formInfo = {
         ride_id: parseInt(selectedRide),
         itinerary_id: parseInt(selectedItinerary),
         time: time
     }
+
+    console.log("form info", formInfo);
 
     useEffect(() => {
         fetch('http://[::1]:3001/rides')
@@ -45,6 +49,7 @@ function AddRide({ user }) {
     }
 
     function handleItineraryChange(e) {
+        console.log("target value", e.target.value)
         setSelectedItinerary(e.target.value)
     }
 
@@ -59,7 +64,9 @@ function AddRide({ user }) {
             body: JSON.stringify(formInfo),
         })
             .then(response => response.json())
-            .then(() => history.push("/trips"));
+            .then(data => console.log('data', data)
+            // history.push("/trips")
+            );
     }
 
     return (

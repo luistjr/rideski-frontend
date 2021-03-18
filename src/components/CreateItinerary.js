@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
 import '../CreateItinerary.css';
@@ -6,7 +6,11 @@ import AddRide from './AddRide';
 
 function CreateItinerary({ user, setShowHome, itineraries, setItineraries }) {
 
-  const toggleHome = setShowHome(false)
+  useEffect(() => {
+    setShowHome(false)
+  }, [setShowHome])
+
+  // const toggleHome = setShowHome(false)
   const [date, setDate] = useState(new Date());
   const [showCalendar, setShowCalendar] = useState(false);
   const [addRides, setAddRides] = useState(false);
@@ -63,11 +67,10 @@ function CreateItinerary({ user, setShowHome, itineraries, setItineraries }) {
 
   return (
     <div>
-      {toggleHome}
+      {/* {toggleHome} */}
       <br />
       <br />
       <div className="create">
-        {/* {toggleHome} */}
         <button onClick={handleAddRides} className="ui button" >Add Rides to Existing Itinerary</button>
         </div>
         <br />
