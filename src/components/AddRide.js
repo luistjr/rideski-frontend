@@ -3,39 +3,35 @@ import TimePicker from 'react-time-picker';
 import { useHistory } from 'react-router-dom';
 
 
-function AddRide({ user }) {
+function AddRide({ userItineraries }) {
 
     let history = useHistory();
 
     const [rideList, setRideList] = useState([]);
-    const [userItineraries, setUserItineraries] = useState([]);
+   
 
     const [time, setTime] = useState('09:00');
     const [selectedRide, setSelectedRide] = useState(1);
-    const [selectedItinerary, setSelectedItinerary] = useState(1);
+    const [selectedItinerary, setSelectedItinerary] = useState(userItineraries[0].id);
 
-    console.log("user itineraries", userItineraries)
+    console.log("ADD RIDE", selectedItinerary);
 
+    // how to set the default value to the user's first itinerary id? 
+        
     const formInfo = {
         ride_id: parseInt(selectedRide),
         itinerary_id: parseInt(selectedItinerary),
         time: time
     }
-
+    
     console.log("form info", formInfo);
-
+    
     useEffect(() => {
         fetch('http://[::1]:3001/rides')
-            .then(response => response.json())
-            .then(data => setRideList(data));
+        .then(response => response.json())
+        .then(data => setRideList(data));
     }, [])
-
-    useEffect(() => {
-        fetch(`http://[::1]:3001/users/${user.id}`)
-            .then(response => response.json())
-            .then(data => setUserItineraries(data.itineraries));
-    }, [user.id])
-
+    
     const rideNames = rideList.map((ride) => {
         return <option key={ride.id} value={ride.id}>{ride.name}</option>
     })
@@ -64,9 +60,7 @@ function AddRide({ user }) {
             body: JSON.stringify(formInfo),
         })
             .then(response => response.json())
-            .then(data => console.log('data', data)
-            // history.push("/trips")
-            );
+            .then(() => history.push("/trips"));
     }
 
     return (
@@ -77,7 +71,7 @@ function AddRide({ user }) {
 
             <form onSubmit={handleSubmit}>
                 {/* <label htmlFor="time">Choose a time:</label> */}
-                <select value={selectedItinerary} onChange={handleItineraryChange}>
+                <select value={selectedItinerary} onChange={handleItineraryChange} selected>
                     {userItineraryList}
                 </select>
                 <select value={selectedRide} onChange={handleRideChange}>
