@@ -14,17 +14,17 @@ function CreateItinerary({ user, setShowHome, itineraries, setItineraries }) {
   const [showCalendar, setShowCalendar] = useState(false);
   const [addRides, setAddRides] = useState(false);
   const [userItineraries, setUserItineraries] = useState([]);
-  
+
   const month = date.getUTCMonth() + 1;
   const day = date.getUTCDate();
   const year = date.getUTCFullYear();
-  
+
   const newDate = `${month}/${day}/${year}`
 
   const itineraryDate = {
     date: newDate
   };
-  
+
   useEffect(() => {
     fetch(`http://[::1]:3001/users/${user.id}`)
       .then(response => response.json())
@@ -70,13 +70,23 @@ function CreateItinerary({ user, setShowHome, itineraries, setItineraries }) {
     setAddRides(true);
   }
 
+  console.log('CI', itineraries)
+
+ function showAddRides() {
+    if (userItineraries === []) {
+      console.log('success');
+    } else {
+     return <div className="create">
+        <button onClick={handleAddRides} className="ui button" >Add Rides to Existing Itinerary</button>
+      </div>
+    }
+  }
+
   return (
     <div>
       <br />
       <br />
-      <div className="create">
-        <button onClick={handleAddRides} className="ui button" >Add Rides to Existing Itinerary</button>
-      </div>
+      {showAddRides()}
       <br />
       <br />
       <div className="create">
